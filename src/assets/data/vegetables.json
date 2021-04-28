@@ -1,0 +1,98 @@
+[
+    {
+        "id": 1,
+        "name": "Ez egy nagyon hosszú zöldség név, ami nagyon hosszúúúúúúúúúúúúúúúú",
+        "type": "vegetables",
+        "imagepath": "assets/images/vegetables.jpg",
+        "unitprice": 12,
+        "unittype": "Kg"
+    },
+    {
+        "id": 2,
+        "name": "Krumpli",
+        "type": "vegetables",
+        "imagepath": "assets/images/cayde.jpg",
+        "unitprice": 12,
+        "unittype": "Kg"
+    },
+    {
+        "id": 3,
+        "name": "Krumpli",
+        "type": "vegetables",
+        "imagepath": "assets/images/vegetables.jpg",
+        "unitprice": 12,
+        "unittype": "Kg"
+    },
+    {
+        "id": 4,
+        "name": "Krumpli",
+        "type": "vegetables",
+        "imagepath": "assets/images/vegetables.jpg",
+        "unitprice": 12,
+        "unittype": "Kg"
+    },
+    {
+        "id": 5,
+        "name": "Krumpli",
+        "type": "vegetables",
+        "imagepath": "assets/images/vegetables.jpg",
+        "unitprice": 12,
+        "unittype": "Kg"
+    },
+    {
+        "name": "Krumpli",
+        "type": "vegetables",
+        "imagepath": "assets/images/vegetables.jpg",
+        "unitprice": 12,
+        "unittype": "Kg"
+    },
+    {
+        "name": "Krumpli",
+        "type": "vegetables",
+        "imagepath": "assets/images/vegetables.jpg",
+        "unitprice": 12,
+        "unittype": "Kg"
+    },
+    {
+        "name": "Krumpli",
+        "type": "vegetables",
+        "imagepath": "assets/images/vegetables.jpg",
+        "unitprice": 12,
+        "unittype": "Kg"
+    },
+    {
+        "name": "Krumpli",
+        "type": "vegetables",
+        "imagepath": "assets/images/vegetables.jpg",
+        "unitprice": 12,
+        "unittype": "Kg"
+    },
+    {
+        "name": "Krumpli",
+        "type": "vegetables",
+        "imagepath": "assets/images/vegetables.jpg",
+        "unitprice": 12,
+        "unittype": "Kg"
+    },
+    {
+        "name": "Krumpli",
+        "type": "vegetables",
+        "imagepath": "assets/images/vegetables.jpg",
+        "unitprice": 12,
+        "unittype": "Kg"
+    },
+    {
+        "name": "Krumpli",
+        "type": "vegetables",
+        "imagepath": "assets/images/vegetables.jpg",
+        "unitprice": 12,
+        "unittype": "Kg"
+    },
+    {
+        "name": "Krumpli",
+        "type": "vegetables",
+        "imagepath": "assets/images/vegetables.jpg",
+        "unitprice": 12,
+        "unittype": "Kg"
+    }
+]

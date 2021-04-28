@@ -1,0 +1,51 @@
+<div *ngIf="type === 'item'" class="container d-flex align-items-center">
+  <h1>Termék visszajelzések</h1>
+</div>
+
+<div *ngIf="type === 'producer'" class="container d-flex align-items-center">
+  <h1>Termelői visszajelzések</h1>
+</div>
+
+<div class="container list">
+  <div class="defaultStyle">  
+    <table mat-table [dataSource]="dataSource" class="col-12 defaultStyle">
+
+     
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> ID </th>
+        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+      </ng-container>
+     
+       <ng-container matColumnDef="reviewdId">
+        <th mat-header-cell *matHeaderCellDef> UserID </th>
+        <td mat-cell *matCellDef="let element"> {{element.reviewdId}} </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="review">
+        <th mat-header-cell *matHeaderCellDef> Visszajelzés </th>
+        <td mat-cell *matCellDef="let element" class="review-size p-2"> {{element.review}} </td>
+      </ng-container>
+
+  
+      <ng-container matColumnDef="edit">
+        <th mat-header-cell *matHeaderCellDef> Törlés </th>
+        <td mat-cell *matCellDef="let element">
+
+          <button mat-mini-fab color="warn" (click)="openDialog(element.id)">
+            <mat-icon>
+              delete
+            </mat-icon>
+          </button>
+         
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  </div>
+</div>
+
+

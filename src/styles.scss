@@ -1,0 +1,100 @@
+@import '~bootstrap/scss/bootstrap';
+@import "https://fonts.googleapis.com/icon?family=Material+Icons";
+
+:root {
+  --green: #28a745;
+  --darkgreen: #227235;
+}
+
+h1 {
+  padding: 0.5rem;
+  color: black !important;
+}
+
+.btn {
+  background: var(--green) !important;
+  color: #ffffff !important;
+
+  &:hover {
+    background-color: var(--darkgreen);
+    color: #ffffff !important;
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: none;
+  }
+
+}
+
+input {
+  &:focus {
+    border-color: var(--green) !important;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px var(--green) !important;
+  }
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.snackbar-color {
+  background: #ffffff;
+  border: 3px solid var(--green);
+  color: var(--green);
+
+  .mat-simple-snackbar-action {
+    color: var(--green);
+  }
+}
+
+.snackbar-color-warn {
+  background: #ffffff;
+  border: 3px solid red;
+  color: red;
+
+  .mat-simple-snackbar-action {
+    color: red;
+  }
+
+}
+
+mat-drawer-container {
+  min-height: 800px;
+
+  mat-drawer {
+    border-right: 3px solid var(--green) !important;
+    border-left: 3px solid var(--green) !important;
+
+    span {
+      color: #000000 !important;
+    }
+  }
+}
+
+.list{
+  border:1px solid var(--green);
+  padding: 0;
+  img{
+      max-height: 130px;
+  }
+}
+
+.defaultStyle {
+  .mat-cell,
+  .mat-header-cell {
+    text-align: center !important;
+  }
+  
+}
+
+.mat-sort-header-container {
+  display:flex;
+  justify-content:center;
+}
+
+.warning{
+  color:#dc3545;
+}
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';

@@ -1,0 +1,54 @@
+<div class="container d-flex align-items-center">
+     <h1>Rendelés részleteinek módosítása</h1>   
+</div>
+   
+<div class="container" *ngIf="form">
+     <div class="col-8">
+          <form [formGroup]="form">
+
+               <div class="form-group">
+                    <label for="productid">Termék ID</label>
+                    <input readonly type="text" class="form-control" formControlName="productid">
+               </div>
+
+               <div class="form-group">
+                    <label for="productname">Termék név</label>
+                    <input readonly type="text" class="form-control" formControlName="productname">
+               </div>
+
+               <div class="form-group">
+                    <label for="unit">Mértékegység</label>
+                    <input readonly type="text" class="form-control" formControlName="unit">
+               </div>
+
+               <div class="form-group">
+                    <label for="unitprice">Egységár</label>
+                    <input readonly type="text" class="form-control" formControlName="unitprice">
+               </div>
+
+               <div class="form-group">
+                    <label for="quantity">Mennyiség</label>
+                    <input type="text" class="form-control" formControlName="quantity" placeholder="Mennyiség"
+                         [ngClass]="{ 'is-invalid': form.get('quantity').touched && form.get('quantity').errors }">
+                    <div *ngIf="form.get('quantity').touched && form.get('quantity').errors">
+                         <p *ngIf="form.get('quantity').hasError('required')">Mennyiség mező kitöltése kötelező!</p>
+                    </div>
+               </div>
+
+               <div class="form-group">
+                    <label for="status">Státusz</label>
+                    <select class="form-control" formControlName="status" placeholder="Státusz">
+                         <option>Folyamatban</option>
+                         <option>Elkészült</option>
+                    </select>
+               </div>
+              
+          </form>
+          <div class="d-flex">
+               <button mat-raised-button color="primary" [disabled]="form.invalid" class="mb-2 mx-auto" (click)="onSubmit()">
+                    Szerkesztés
+               </button>
+          </div>
+
+     </div>
+</div>

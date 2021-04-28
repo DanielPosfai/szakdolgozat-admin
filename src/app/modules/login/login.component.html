@@ -1,0 +1,17 @@
+<div *ngIf="!isAuthenticated" class="container d-flex">
+          <div class="col-6 mx-auto p-4">
+            <h1>Bejelentkezés</h1>
+               <form>
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Felhasználónév</label>
+                      <input type="text" class="form-control"placeholder="Felhasználónév" #username>
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputPassword1">Jelszó</label>
+                      <input type="password" class="form-control" placeholder="Jelszó" #password>
+                    </div>
+                   
+                  </form>
+                  <button class="btn my-2" (click)="doLogin(username.value,password.value)">Bejelentkezés</button>
+          </div>  
+</div>

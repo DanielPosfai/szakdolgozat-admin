@@ -1,0 +1,65 @@
+<div class="container d-flex align-items-center">
+    <div>
+        <h1 class="col-12">Rendelés statisztikák</h1>
+        <p class="mb-0">Kezdő dátum</p>
+        <p class="mb-0">
+            <input matInput [matDatepicker]="dp1" [max]="today" disabled #startdate>
+            <mat-datepicker-toggle matSuffix [for]="dp1"></mat-datepicker-toggle>
+            <mat-datepicker #dp1 disabled="false"></mat-datepicker>
+        </p>
+        <p class="mb-0">Vég dátum</p>
+        <p class="mb-0">
+             
+            <input matInput [matDatepicker]="dp2" [max]="today" disabled #enddate>
+            <mat-datepicker-toggle matSuffix [for]="dp2"></mat-datepicker-toggle>
+            <mat-datepicker #dp2 disabled="false"></mat-datepicker>
+        </p>
+        <button mat-raised-button color="primary" class="ml-auto mb-2" [disabled]="startdate.value ===''" (click)=onClick(startdate.value,enddate.value)>Lekérdezés</button>  
+        <div >
+            <p *ngIf="orders.length > 0">Rendelések száma : {{numberOfOrders}} db | Teljes összeg: {{totalValue}} Ft | Átlag összeg rendelésenként: {{avarageValuePerOrder}} Ft</p>
+        </div>
+    </div>
+    
+</div>
+
+<div class="container list">
+    <div class="defaultStyle">
+        <table mat-table [dataSource]="dataSource" matSort class="col-12 defaultStyle">
+
+            <!-- Position Column -->
+            <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef> ID </th>
+                <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+            </ng-container>
+
+            <!-- Keresztnév Column -->
+            <ng-container matColumnDef="orderdate">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Rendelés dátuma </th>
+                <td mat-cell *matCellDef="let element"> {{element.orderdate}} </td>
+            </ng-container>
+
+            <!-- Vezetéknév Column -->
+            <ng-container matColumnDef="totalprice">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Teljes összeg </th>
+                <td mat-cell *matCellDef="let element"> {{element.totalprice}} Ft</td>
+            </ng-container>
+
+            <!-- Felhasználó név Column -->
+            <ng-container matColumnDef="customerid">
+                <th mat-header-cell *matHeaderCellDef> Felhasználó ID </th>
+                <td mat-cell *matCellDef="let element"> {{element.customerid}} </td>
+            </ng-container>
+
+            <!-- Email Column -->
+            <ng-container matColumnDef="status">
+                <th mat-header-cell *matHeaderCellDef> Rendelés státusza </th>
+                <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+    </div>
+</div>

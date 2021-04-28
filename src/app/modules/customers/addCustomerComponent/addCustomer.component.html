@@ -1,0 +1,83 @@
+<div class="container d-flex align-items-center">
+     <h1>Vásárló felhasználó hozzáadása</h1>   
+</div>
+   
+<div class="container">
+     <div class="col-8">
+          <form [formGroup]="form">
+
+               <div class="form-group">
+                    <label for="lastName">Vezetéknév</label>
+                    <input type="text" class="form-control" formControlName="lastName" placeholder="Vezetéknév"
+                         [ngClass]="{ 'is-invalid': form.get('lastName').touched && form.get('lastName').errors }">
+                    <div *ngIf="form.get('lastName').touched">
+                         <mat-error *ngIf="form.get('lastName').hasError('required')" class="warning">Vezetéknév mező kitöltése kötelező!</mat-error>
+                    </div>
+               </div>
+
+               <div class="form-group">
+                    <label for="firstName">Keresztnév</label>
+                    <input type="text" class="form-control" formControlName="firstName" placeholder="Keresztnév"
+                         [ngClass]="{ 'is-invalid': form.get('firstName').touched && form.get('firstName').errors }">
+                    <div *ngIf="form.get('firstName').touched && form.get('firstName').errors">
+                         <p *ngIf="form.get('firstName').hasError('required')" class="warning">Keresztnév mező kitöltése kötelező!</p>
+                    </div>
+               </div>
+
+               <div class="form-group">
+                    <label for="userName">Felhasználónév</label>
+                    <input type="text" class="form-control" formControlName="userName" placeholder="Felhasználónév"
+                         [ngClass]="{ 'is-invalid': form.get('userName').touched && form.get('userName').errors }">
+                    <div *ngIf="form.get('userName').touched && form.get('userName').errors">
+                         <p *ngIf="form.get('userName').hasError('required')" class="warning">Felhasználónév mező kitöltése kötelező!</p>
+                    </div>
+               </div>
+
+               <div class="form-group">
+                    <label for="email">E-mail cím</label>
+                    <input type="text" class="form-control" formControlName="email" placeholder="E-mail cím"
+                         [ngClass]="{ 'is-invalid': form.get('email').touched && form.get('email').errors }">
+                    <div *ngIf="form.get('email').touched && form.get('email').errors">
+                         <p *ngIf="form.get('email').hasError('required')" class="warning">E-mail cím mező kitöltése kötelező!</p>
+                         <p *ngIf="form.get('email').hasError('pattern')" class="warning">A megadott e-mail formátum nem megfelelő!</p>
+                    </div>
+               </div>
+
+               <div class="form-group">
+                    <label for="phoneNumber">Telefonszám</label>
+                    <input type="text" class="form-control" formControlName="phoneNumber" placeholder="Telefonszám"
+                         [ngClass]="{ 'is-invalid': form.get('phoneNumber').touched && form.get('phoneNumber').errors }">
+                    <div *ngIf="form.get('phoneNumber').touched && form.get('phoneNumber').errors">
+                         <p *ngIf="form.get('phoneNumber').hasError('required')" class="warning">Telefonszám mező kitöltése kötelező!</p>
+                         <p *ngIf="form.get('phoneNumber').hasError('pattern')" class="warning">A megadott telefonszám formátum nem megfelelő!</p>
+                         <p *ngIf="form.get('phoneNumber').hasError('maxlength')" class="warning">A telefonszám maximum 11 karakter hosszú kell hogy legyen!</p>
+                    </div>
+               </div>
+
+               <div class="form-group">
+                    <label for="password">Jelszó</label>
+                    <input  type="password" class="form-control" formControlName="password" placeholder="Jelszó"
+                    [ngClass]="{ 'is-invalid': form.get('password').touched && form.get('password').errors }">
+                    <div *ngIf=" form.get('password').touched && form.get('password').errors">
+                         <p *ngIf="form.get('password').hasError('required')" class="warning">Jelszó mező kitöltése kötelező!</p>
+                         <p *ngIf="form.get('password').hasError('minlength')" class="warning">Jelszó legalább 8 karakter hosszú kell hogy legyen!</p>
+                    </div>
+               </div>
+
+               <div class="form-group">
+                    <label for="confirmPassword">Jelszó megerősítése</label>
+                    <input type="password" class="form-control" formControlName="confirmPassword" placeholder="Jelszó"
+                    [ngClass]="{ 'is-invalid': form.get('confirmPassword').touched && form.errors?.ConfirmedValidator }">
+                    <div *ngIf="form.errors?.ConfirmedValidator && form.get('confirmPassword').touched">
+                         <p class="warning">Jelszónak és a Megerősítő jelszónak egyeznie kell!</p>
+                    </div>
+               </div>
+          </form>
+          <div class="d-flex">
+               <button mat-raised-button color="primary" [disabled]="form.invalid" class="mb-2 mx-auto" (click)="onSubmit()">
+                    Hozzáadás
+               </button>
+          </div>
+
+     </div>
+</div>

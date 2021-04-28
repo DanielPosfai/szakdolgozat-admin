@@ -1,0 +1,77 @@
+<div class="container d-flex align-items-center">
+  <h1>Termékek</h1>
+  <button mat-raised-button color="primary" class="ml-auto" routerLink="/items/add">Hozzáadás</button>
+</div>
+
+<div class="container list">
+  <div class="defaultStyle">
+    <table mat-table [dataSource]="dataSource" matSort class="col-12 defaultStyle">
+
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> ID </th>
+        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="image">
+        <th mat-header-cell *matHeaderCellDef> Kép </th>
+        <td mat-cell *matCellDef="let element"> <img [src]="element.image" alt="{{element.firstname}}"
+            class="p-1"></td>
+      </ng-container>
+
+      <ng-container matColumnDef="productname">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Termék név </th>
+        <td mat-cell *matCellDef="let element"> {{element.productname}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="details">
+        <th mat-header-cell *matHeaderCellDef> Részletek </th>
+        <td mat-cell *matCellDef="let element" class="details-size p-2"> {{element.details}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="unit">
+        <th mat-header-cell *matHeaderCellDef> Mértékegység </th>
+        <td mat-cell *matCellDef="let element"> {{element.unit}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="price">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Egységár </th>
+        <td mat-cell *matCellDef="let element"> {{element.price}} Ft</td>
+      </ng-container>
+
+      <ng-container matColumnDef="category">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Kategória </th>
+        <td mat-cell *matCellDef="let element"> {{element.category}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="producer">
+        <th mat-header-cell *matHeaderCellDef> Termelő ID </th>
+        <td mat-cell *matCellDef="let element"> {{element.producer}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="edit">
+        <th mat-header-cell *matHeaderCellDef> Szerkesztés/Törlés </th>
+        <td mat-cell *matCellDef="let element">
+         
+          <button mat-mini-fab color="primary" class="my-1">
+            <mat-icon routerLink="/items/edit/{{element.id}}">
+              mode_edit
+            </mat-icon>
+          </button>
+          
+          <button mat-mini-fab color="warn" (click)="openDialog(element.id)">
+            <mat-icon>
+              delete
+            </mat-icon>
+          </button>
+        </td>
+      </ng-container>
+      <!-- Delete Column -->
+       
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  </div>
+</div>

@@ -1,0 +1,94 @@
+<div class="container d-flex align-items-center">
+     <h1>Termék szerkesztés</h1>
+</div>
+
+<div class="container" *ngIf="form">
+     <div class="col-8">
+          <form [formGroup]="form">
+
+               <div class="form-group">
+                    <label for="productname">Termék név</label>
+                    <input type="text" class="form-control" formControlName="productname" placeholder="Termék név"
+                         [ngClass]="{ 'is-invalid': form.get('productname').touched && form.get('productname').errors }">
+                    <div *ngIf="form.get('productname').touched">
+                         <mat-error *ngIf="form.get('productname').hasError('required')" class="warning">Termék név mező
+                              kitöltése kötelező!</mat-error>
+                    </div>
+               </div>
+
+               <div class="form-group">
+                    <label for="unit">Mértékegység</label>
+                    <select class="form-control" formControlName="unit" placeholder="Mértékegység"
+                         [ngClass]="{ 'is-invalid': form.get('unit').touched && form.get('unit').errors }">
+                         <option>Kg</option>
+                         <option>g</option>
+                         <option>L</option>
+                         <option>Dl</option>
+                         <option>Db</option>
+                    </select>
+                    <div *ngIf="form.get('unit').touched && form.get('unit').errors">
+                         <p *ngIf="form.get('unit').hasError('required')" class="warning">Mértékegység választása
+                              kötelező!</p>
+                    </div>
+               </div>
+
+               <div class="form-group">
+                    <label for="price">Egységár</label>
+                    <input type="number" class="form-control" formControlName="price" placeholder="Egységár"
+                         [ngClass]="{ 'is-invalid': form.get('price').touched && form.get('price').errors }">
+                    <div *ngIf="form.get('price').touched && form.get('price').errors">
+                         <p *ngIf="form.get('price').hasError('required')" class="warning">Egységár mező kitöltése
+                              kötelező!</p>
+                    </div>
+               </div>
+
+               <div class="form-group">
+                    <label for="category">Kategória</label>
+                    <select class="form-control" formControlName="category" placeholder="Kategória"
+                    [ngClass]="{ 'is-invalid': form.get('category').touched && form.get('category').errors }">
+                         <option>vegetable</option>
+                         <option>fruit</option>
+                         <option>dairy</option>
+                         <option>drink</option>
+                         <option>cookie</option>
+                         <option>meat</option>
+                         <option>bakedgoods</option>
+                    </select>
+                    <div *ngIf="form.get('category').touched && form.get('category').errors">
+                         <p *ngIf="form.get('category').hasError('required')" class="warning">Kategória választása
+                              kötelező!</p>
+                    </div>
+               </div>
+
+               <div class="form-group">
+                    <label for="details">Leírás</label>
+                    <input type="text" class="form-control" formControlName="details" placeholder="Leírás"
+                         [ngClass]="{ 'is-invalid': form.get('details').touched && form.get('details').errors }">
+                    <div *ngIf="form.get('details').touched && form.get('details').errors" class="invalid-feedback">
+                         <p *ngIf="form.get('details').hasError('required')" class="warning">Leírás mező kitöltése
+                              kötelező!</p>
+                    </div>
+               </div>
+
+               <label for="imagePreview">Kép feltöltés</label>
+               <div class="form-group">
+                    <input type="file" formControlName="imagePreview" (change)="onChange($event)" />
+                    <div *ngIf="imagePreview" class="d-flex justify-content-center">
+                         <img class="my-2" [src]="imagePreview" width="300px" height="200px" alt="Előnézet" />
+                    </div>
+                    <div *ngIf="item && !imagePreview" class="d-flex justify-content-center">
+                         <img class="my-2" [src]="item.image" width="300px" height="200px" alt="Előnézet" />
+                    </div>
+               </div>
+
+
+          </form>
+          <div class="d-flex">
+               <button mat-raised-button color="primary" [disabled]="form.invalid" class="mb-2 mx-auto"
+                    (click)="onSubmit()">
+                    Szerkesztés
+               </button>
+          </div>
+
+     </div>
+</div>

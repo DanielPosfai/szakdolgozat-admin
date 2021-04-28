@@ -1,0 +1,18 @@
+[
+    {
+        "id": 1,
+        "name": "page refresh seems to work",
+        "type": "vegetables",
+        "imagepath": "assets/images/vegetables.jpg",
+        "unitprice": 12,
+        "unittype": "Kg"
+    },
+    {
+        "id": 2,
+        "name": "Krumpli",
+        "type": "vegetables",
+        "imagepath": "assets/images/cayde.jpg",
+        "unitprice": 12,
+        "unittype": "Kg"
+    }
+]

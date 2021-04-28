@@ -1,0 +1,74 @@
+<div class="container d-flex align-items-center">
+  <h1>Adminisztrátorok</h1>
+  <button mat-raised-button color="primary" class="ml-auto" routerLink="/admins/add">Hozzáadás</button>
+</div>
+
+<div class="container list">
+  <div class="defaultStyle">
+    <table mat-table [dataSource]="dataSource" matSort class="col-12  defaultStyle">
+
+      <!-- Position Column -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef > ID </th>
+        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+      </ng-container>
+
+      <!-- Vezetéknév Column -->
+      <ng-container matColumnDef="lastname">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Vezetéknév </th>
+        <td mat-cell *matCellDef="let element"> {{element.lastname}} </td>
+      </ng-container>
+
+      <!-- Keresztnév Column -->
+      <ng-container matColumnDef="firstname">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Keresztnév </th>
+        <td mat-cell *matCellDef="let element"> {{element.firstname}} </td>
+      </ng-container>
+
+      <!-- Felhasználó név Column -->
+      <ng-container matColumnDef="username">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Felhasználó név </th>
+        <td mat-cell *matCellDef="let element"> {{element.username}} </td>
+      </ng-container>
+
+      <!-- Email Column -->
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
+        <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+      </ng-container>
+
+      <!-- Telefonszám Column -->
+      <ng-container matColumnDef="phonenumber">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Telefonszám </th>
+        <td mat-cell *matCellDef="let element"> {{element.phonenumber}} </td>
+      </ng-container>
+
+      <!-- Edit Column -->
+      <ng-container matColumnDef="edit">
+        <th mat-header-cell *matHeaderCellDef> Szerkesztés/Törlés </th>
+        <td mat-cell *matCellDef="let element">
+         
+          <button mat-mini-fab color="primary" class="my-1">
+            <mat-icon routerLink="/admins/edit/{{element.id}}">
+              mode_edit
+            </mat-icon>
+          </button>
+          
+          <button mat-mini-fab color="warn" (click)="openDialog(element.id)">
+            <mat-icon>
+              delete
+            </mat-icon>
+          </button>
+         
+        </td>
+      </ng-container>
+      <!-- Delete Column -->
+       
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  </div>
+</div>

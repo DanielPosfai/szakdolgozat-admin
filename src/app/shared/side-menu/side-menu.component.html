@@ -1,0 +1,11 @@
+<nav class="navbar">
+<mat-list role="list" *ngIf="menuItems">
+
+  <mat-list-item role="listitem" *ngFor="let menuItem of menuItems" class="pointer">
+    <a mat-button class="sidenav-menu-item nav-link w-100" routerLinkActive="active"
+    routerLink="{{menuItem.path}}">
+      {{menuItem.tabname}}
+    </a>
+  </mat-list-item>
+</mat-list>
+</nav>
